@@ -22,11 +22,11 @@ BIG_NUM = [i for i in """
 71636269561882670428252483600823257530420752963450
 """ if i.isdigit()]
 
-def chunk(list, chunk_size):
+def chunk(l, chunk_size):
     i = 0
-    size = len(list)
+    size = len(l)
     while i < size:
-        yield list[i:i+chunk_size]
+        yield l[i:i+chunk_size]
         i=i+1
 
 max = 0
