@@ -15,6 +15,7 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 """
+import itertools
 
 def step(nat):
     while nat > 1:
@@ -23,14 +24,15 @@ def step(nat):
             nat = nat/2
         else:
             nat = (3*nat)+1
+    yield 1
 
 def create_chain(start):
-    return list(step(start)) + [1]
+    return step(start)
 
 max_l = 0
 max_n = 0
 for i in range(1, 1000001):
-    l = len(create_chain(i))
+    l =  len(list(create_chain(i)))
     if l > max_l:
         max_l = l
         max_n = i
