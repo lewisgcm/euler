@@ -19,6 +19,6 @@ def is_pythagorean_triplet(x, y):
 for i in range(1, 400):
     for j in range(1, 400):
         if is_pythagorean_triplet(i, j):
-            hyp = hypotenuse(i , j)
+            hyp = hypotenuse(i, j)
             if hyp + i + j == 1000:
                 print str(i) + "^2 + " + str(j) + "^2 = " + str(int(hyp)) + "^2"
