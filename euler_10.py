@@ -16,6 +16,6 @@ def primes():
     while True:
         if is_prime(n):
             yield n
-        n=n+1
+        n = n+1
 
 print sum(itertools.takewhile(lambda x: x < 200000, primes()))
