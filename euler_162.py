@@ -16,6 +16,14 @@ number as hexadecimal and without leading zeroes , e.g.
 1A3F and not: 1a3f and not 0x1a3f and not $1A3F and not #1A3F and not 0000001A3F)
 """
 import itertools
+import operator
+from collections import Counter
+from math import factorial
+def npermutations(l):
+    num = factorial(len(l))
+    mults = Counter(l).values()
+    den = reduce(operator.mul, (factorial(v) for v in mults), 1)
+    return num / den
 
 #Number will start at 0000000000000000 and end at FFFFFFFFFFFFFFFF
 #Must contain 0,1 and A atleast once
@@ -23,11 +31,7 @@ import itertools
 #So first find only numbers that contain 0, 1 and A once
 #then for each such that A10FFFFFFFFFFFFF could be 1 * (all possible comibinations of FFFFFFFFFFFFF)
 #A10, A01, 1A0, 10A, 0A1, 01A
-#sum = 0
-#for i in itertools.permutations('A10FFFFFFFFFFFFF', 16):
-#    sum = sum + (16**13)
-#print sum
-#print (16**16) - ((6) * 16**13)
+#itertools.permutations('A10FFFFFFFFFFFFF', 16):
 #All possible combinations = 16*16
-print 16**16
+print 6 * (12**16)
 print 4420408745587516162
